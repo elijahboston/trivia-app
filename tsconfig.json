@@ -15,5 +15,8 @@
     "./test-helpers/**/*"
   ],
   "exclude": [
+    "webpack.*.js",
+    "node_modules",
+    "dist"
   ]
 }
