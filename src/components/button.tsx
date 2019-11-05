@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 interface ButtonProps {
   /**
    * Child elements wrapped by the Button component.
@@ -14,3 +16,5 @@ const Button = (props: ButtonProps) => {
     {props.children}
   </button>
 }
+
+export default Button;
