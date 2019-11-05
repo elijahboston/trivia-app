@@ -1,0 +1,85 @@
+{
+  "name": "trivia-app",
+  "version": "1.0.0",
+  "description": "A ten question trivia game",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && ava",
+    "reset-test-cache": "ava --reset-cache",
+    "lint": "xo",
+    "dev": "webpack-dev-server --config webpack.dev.js --color",
+    "build": "webpack --config webpack.prod.js",
+    "storybook": "start-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elijahboston/trivia-app.git"
+  },
+  "author": "Elijah Boston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elijahboston/trivia-app/issues"
+  },
+  "homepage": "https://github.com/elijahboston/trivia-app#readme",
+  "dependencies": {
+    "ava": "^2.4.0",
+    "axios": "^0.19.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "styled-jsx": "^3.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@storybook/addon-knobs": "^5.2.5",
+    "@storybook/react": "^5.2.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint-config-xo-react": "^0.20.0",
+    "eslint-config-xo-typescript": "^0.19.0",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2",
+    "xo": "^0.25.3"
+  },
+  "xo": {
+    "prettier": true,
+    "fix": true,
+    "extends": "xo-react",
+    "envs": [
+      "es6",
+      "browser"
+    ],
+    "extensions": [
+      "js",
+      "jsx"
+    ],
+    "ignores": [
+      "webpack.*.js"
+    ]
+  },
+  "ava": {
+    "verbose": true,
+    "require": [
+      "@babel/register",
+      "./test-helpers/_setup-enzyme.js"
+    ],
+    "babel": {
+      "extensions": ["js", "jsx"],
+      "testOptions": {
+        "presets": [
+          "@babel/preset-react"
+        ]
+      }
+    }
+  }
+}

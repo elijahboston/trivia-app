@@ -1,0 +1,15 @@
+{
+    "plugins": [
+      ["styled-jsx/babel", { "optimizeForSpeed": true }]
+    ],
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": 2
+        }
+      ]
+    ]
+  }
