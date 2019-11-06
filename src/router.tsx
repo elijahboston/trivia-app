@@ -19,11 +19,11 @@ const Router = () => {
 
   if (gameState.isLoading) return <div>Loading...</div>
 
+  if (gameState.isGameOver) return <ResultPage />
+  
   if (!gameState.isGameStarted) return <SplashPage />
 
   if (gameState.isGameStarted) return <QuestionPage />
-
-  if (gameState.isGameOver) return <ResultPage />
 }
 
 export default Router;
