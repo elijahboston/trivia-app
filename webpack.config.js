@@ -12,7 +12,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new TypedocWebpackPlugin({}),
+    new TypedocWebpackPlugin({
+      jsx: 'react'
+    }),
     new HtmlWebpackPlugin({
       title: 'Trivia App',
       template: './static/index.html'
