@@ -21,17 +21,13 @@ module.exports = {
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM'
-  },
   module: {
     // React JS/JSX
     rules: [
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       // fonts
       {
