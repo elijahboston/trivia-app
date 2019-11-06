@@ -2,6 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from './button';
+import Icon from './icon';
 
 const stories = storiesOf('Button', module);
 stories.add('with text', () =>
@@ -17,5 +18,5 @@ stories.add('with text and icon', () =>
     primaryColor='#ccc'
     secondaryColor='#ddd'
     onClick={action('clicked')}>
-      <span>💯</span><span>Some text</span>
+      <span><Icon name='check' /></span><span>Some text</span>
   </Button>);
