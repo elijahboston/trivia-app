@@ -1,23 +1,13 @@
 import * as React from 'react';
 import Icon from './icon';
+import {QuestionType} from '../redux/types'
 
-export interface ResultItemProps {
-  /**
-   * The question.
-   */
-  question: string,
-  /**
-   * Whether the question was answered correctly.
-   */
-  isAnswerCorrect: boolean
-}
-
-const ResultItem = (props: ResultItemProps) =>
+const ResultItem = (props: QuestionType) =>
   <li className='result-item'>
     <span className='is-correct'>
       <Icon
-        name={props.isAnswerCorrect ? 'check' : 'close'}
-        color={props.isAnswerCorrect ? 'green' : 'red'}
+        name={props.correctAnswer === props.answer ? 'check' : 'close'}
+        color={props.correctAnswer === props.answer ? 'green' : 'red'}
         fontSize='2rem'
         />
     </span>
