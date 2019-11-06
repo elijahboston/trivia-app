@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A ten question trivia game",
   "main": "index.js",
+  "browserslist": "> 0.25%, not dead",
   "scripts": {
     "test": "xo && tsc && ava",
     "reset-test-cache": "ava --reset-cache",
@@ -31,6 +32,7 @@
     "@types/redux-thunk": "^2.1.0",
     "@types/styled-jsx": "^2.2.8",
     "axios": "^0.19.0",
+    "core-js": "^3.3.6",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -41,6 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-regenerator": "^7.7.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.7.0",
