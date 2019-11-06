@@ -12,22 +12,22 @@ export interface QuestionType {
   difficulty: string,
   question: string,
   correctAnswer: boolean,
-  answer: boolean
+  answer?: boolean
 }
 
 export interface AppStateType {
   /**
    * Whether the game data is loading.
    */
-  loading: boolean,
+  isLoading: boolean,
   /**
    * Indicates the game is in progress.
    */
-  started: boolean,
+  isGameStarted: boolean,
   /**
    * Indicates the end of the game (i.e. all questions answered).
    */
-  ended: boolean,
+  isGameOver: boolean,
   /**
    * Number of the current question, starting from zero index.
    */

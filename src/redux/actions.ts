@@ -1,15 +1,17 @@
 import { Dispatch } from 'redux'
-import api from '../api'; 
+import api from '../api'
+import { ApiResultType } from '../api/types'
 import {
   Answer,
   ANSWER_QUESTION,
+  START_GAME,
   GameActionTypes
 } from './types'
-
 import {
-  API_DATA_LOADED,
-  API_DATA_LOADING
-} from './api/types'
+  apiDataLoaded,
+  apiDataLoading
+} from './api/actions'
+
 
 /**
  * Dispatch action for when the user answers a question.
@@ -22,15 +24,20 @@ export function answerQuestion(answer: Answer): GameActionTypes {
   }
 }
 
+export function startGame(): GameActionTypes {
+  return {
+    type: START_GAME
+  }
+}
+
 export function initializeApp(): any {
   return async function(dispatch: Dispatch) {
-    dispatch({ type: API_DATA_LOADING });
+    dispatch(apiDataLoading());
 
-    const questions = await api.getQuestions()
+    const resp = await <Promise<ApiResultType>>api.getQuestions()
 
-    dispatch({
-      type: API_DATA_LOADED,
-      payload: { questions }
-    });
+    dispatch(apiDataLoaded(resp.questions));
+
+    dispatch(startGame());
   }
 }

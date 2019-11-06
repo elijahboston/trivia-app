@@ -10,12 +10,11 @@ import {
 import {
   ApiActionTypes, API_DATA_LOADING, API_DATA_LOADED
 } from './api/types'
-import { stat } from 'fs'
 
 const initialState: AppStateType = {
-  loading: false,
-  started: false,
-  ended: false,
+  isLoading: false,
+  isGameStarted: false,
+  isGameOver: false,
   currentQuestion: 0,
   questions: [],
   correctAnswers: 0,
@@ -30,22 +29,20 @@ function appReducer(
     case START_GAME:
       return {
         ...state,
-        started: true,
-        ended: false
+        isGameStarted: true,
+        isGameOver: false
       }
     case RESET_GAME:
       return {
         ...state,
-        ended: false,
-        started: false
+        isGameStarted: false,
+        isGameOver: false
       }
     case ANSWER_QUESTION:
       let isCorrect = false
-      const questions = Object
-        // Create copy from state
-        .assign({}, state.questions)
-        // Update the question with the user's answer
+      const questions =  state.questions
         .map((q: QuestionType, i: number): QuestionType => {
+          // Update the question with the user's answer
           if (i === action.payload.questionNumber) {
             q.answer = action.payload.answer;
 
@@ -56,6 +53,8 @@ function appReducer(
 
           return q;
         })
+      
+      const isGameOver = state.currentQuestion + 1 >= 10;
 
       return {
         ...state,
@@ -63,19 +62,21 @@ function appReducer(
         correctAnswers: isCorrect ? state.correctAnswers + 1 : state.correctAnswers,
         incorrectAnswers: !isCorrect ? state.incorrectAnswers + 1 : state.incorrectAnswers,
         // Update game state
-        currentQuestion: state.currentQuestion + 1,
+        currentQuestion: isGameOver ? 0 : state.currentQuestion + 1,
+        isGameOver,
+        isGameStarted: !isGameOver,
         // Update state with the answered question
         questions
       }
     case API_DATA_LOADING:
       return {
         ...state,
-        loading: true
+        isLoading: true
       }
     case API_DATA_LOADED:
         return {
           ...state,
-          loading: false,
+          isLoading: false,
           questions: action.payload.questions
         }
     default:
