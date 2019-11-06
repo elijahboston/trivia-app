@@ -12,11 +12,11 @@ interface ButtonProps {
   /**
    * Primary color (hex or rgba) to use for the button.
    */
-  primaryColor: string,
+  primaryColor?: string,
   /**
    * Secondary color (hex or rgba) is used to alter style during click events.
    */
-  secondaryColor: string
+  secondaryColor?: string
 }
 
 const Button = (props: ButtonProps) =>
