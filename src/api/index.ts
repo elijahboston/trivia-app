@@ -1,4 +1,5 @@
-import {default as axios} from 'axios';
+import {default as axios} from 'axios'
+import {XmlEntities} from 'html-entities'
 import {
   ApiArgsType,
   ApiResultType,
@@ -41,7 +42,7 @@ const api = (args: ApiArgsType): ApiHandlerType => {
             category,
             type,
             difficulty,
-            question,
+            question: XmlEntities.decode(question),
             correctAnswer: correctAnswerStr === 'True'
           }
         })
