@@ -12,7 +12,7 @@ interface IconProps {
   /**
    * Color (hex or rgba) for the icon.
    */
-  color: string
+  color?: string
 }
 
 const Icon = (props: IconProps) =>
