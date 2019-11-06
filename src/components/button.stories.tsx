@@ -2,12 +2,21 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from './button';
+import Icon from './icon';
 
-const component = storiesOf('Button', module);
-component.add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>);
+const stories = storiesOf('Button', module);
+stories.add('with text', () =>
+  <Button
+    primaryColor='#ccc'
+    secondaryColor='#ddd'
+    onClick={action('clicked')}>
+      Hello Button
+  </Button>);
 
-component.add('with text and icon', () => (
-  <Button onClick={action('clicked')}>
-    <span>💯</span><span>Some text</span>
-  </Button>
-));
+stories.add('with text and icon', () =>
+  <Button
+    primaryColor='#ccc'
+    secondaryColor='#ddd'
+    onClick={action('clicked')}>
+      <span><Icon name='check' /></span><span>Some text</span>
+  </Button>);
