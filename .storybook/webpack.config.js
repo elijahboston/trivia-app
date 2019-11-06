@@ -4,6 +4,11 @@ module.exports = ({ config }) => {
     use: [
       {
         loader: require.resolve('babel-loader'),
+      },
+      // Transform TSDoc comments into a format usable
+      // by Storybook's "Info" addon
+      {
+        loader: require.resolve('react-docgen-typescript-loader'),
       }
     ],
   });
