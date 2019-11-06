@@ -4,11 +4,12 @@
   "description": "A ten question trivia game",
   "main": "index.js",
   "scripts": {
-    "test": "xo && ava",
+    "test": "xo && tsc && ava",
     "reset-test-cache": "ava --reset-cache",
     "lint": "xo",
     "dev": "webpack-dev-server --config webpack.dev.js --color",
     "build": "webpack --config webpack.prod.js",
+    "build-docs": "typedoc --out docs /src",
     "storybook": "start-storybook"
   },
   "repository": {
@@ -22,7 +23,9 @@
   },
   "homepage": "https://github.com/elijahboston/trivia-app#readme",
   "dependencies": {
-    "ava": "^2.4.0",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@types/styled-jsx": "^2.2.8",
     "axios": "^0.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
@@ -30,14 +33,22 @@
     "styled-jsx": "^3.2.3"
   },
   "devDependencies": {
+    "ava": "^2.4.0",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@babel/register": "^7.6.2",
+    "@storybook/addon-actions": "^5.2.5",
+    "@storybook/addon-info": "^5.2.5",
     "@storybook/addon-knobs": "^5.2.5",
     "@storybook/react": "^5.2.5",
-    "babel-eslint": "^10.0.3",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
     "babel-loader": "^8.0.6",
+    "compression-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint-config-xo-react": "^0.20.0",
@@ -45,6 +56,12 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "react-docgen-typescript-loader": "^3.3.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.4.1",
+    "typedoc": "^0.15.0",
+    "typedoc-webpack-plugin": "^1.1.4",
+    "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
@@ -54,14 +71,9 @@
   "xo": {
     "prettier": true,
     "fix": true,
-    "extends": "xo-react",
-    "envs": [
-      "es6",
-      "browser"
-    ],
+    "extends": "xo-typescript",
     "extensions": [
-      "js",
-      "jsx"
+      "ts"
     ],
     "ignores": [
       "webpack.*.js"
@@ -69,17 +81,17 @@
   },
   "ava": {
     "verbose": true,
-    "require": [
-      "@babel/register",
-      "./test-helpers/_setup-enzyme.js"
+    "compileEnhancements": false,
+    "extensions": [
+      "ts",
+      "tsx"
     ],
-    "babel": {
-      "extensions": ["js", "jsx"],
-      "testOptions": {
-        "presets": [
-          "@babel/preset-react"
-        ]
-      }
-    }
+    "require": [
+      "ts-node/register",
+      "./test-helpers/_setup-enzyme.ts"
+    ],
+    "files": [
+      "!dist/**/*"
+    ]
   }
 }

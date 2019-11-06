@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "removeComments": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+  },
+  "include": [
+    "./src/**/*",
+    "./test-helpers/**/*"
+  ],
+  "exclude": [
+    "webpack.*.js",
+    "node_modules"
+  ]
+}

@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+# project build output
+dist
+
+# VSCode settings
+.vscode
+
