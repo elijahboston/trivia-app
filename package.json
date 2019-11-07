@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/elijahboston/trivia-app#readme",
   "dependencies": {
+    "@types/html-entities": "^1.2.16",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/react-redux": "^7.1.5",
@@ -39,6 +40,7 @@
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.2",
     "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "styled-jsx": "^3.2.3"
   },
@@ -55,6 +57,7 @@
     "@storybook/react": "^5.2.5",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jsdom": "^12.2.4",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
     "ava": "^2.4.0",
@@ -68,6 +71,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^15.2.1",
     "react-docgen-typescript-loader": "^3.3.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.4.1",
@@ -100,6 +104,7 @@
     ],
     "require": [
       "ts-node/register",
+      "./test-helpers/_setup-browser.ts",
       "./test-helpers/_setup-enzyme.ts"
     ],
     "files": [
