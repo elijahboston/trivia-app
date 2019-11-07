@@ -16,23 +16,28 @@ const QuestionPage = () => {
   return (
     <Layout>
       <h1>{question.category}</h1>
-      <h3>{questionNumber + 1}/10</h3>
+      
       <QuestionTile>
         {question.question}
       </QuestionTile>
+
+      <h3>{questionNumber + 1}/10</h3>
+
       <div className='controls'>
         <Button
-          onClick={() => clickHandler({ answer: true, id: question.id })}
-          primaryColor='green'>
+          onClick={() => clickHandler({ answer: true, id: question.id })}>
             True
         </Button>
         <Button
-          onClick={() => clickHandler({ answer: false, id: question.id })}
-          primaryColor='red'>
+          onClick={() => clickHandler({ answer: false, id: question.id })}>
             False
         </Button>
       </div>
       <style jsx>{`
+        h1 {
+          min-height: 5rem;
+          text-align: center;
+        }
         .controls {
           display: flex;
           justify-content: space-around;
