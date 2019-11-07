@@ -3,7 +3,7 @@ import { configure, addDecorator } from '@storybook/react'
 import {Layout} from '../src/components'
 
 addDecorator(storyFn =>
-  <Layout>
+  <React.Fragment>
     {storyFn()}
     <style jsx global>{`
       html {
@@ -12,6 +12,6 @@ addDecorator(storyFn =>
         padding: 0;
       }
     `}</style>
-  </Layout>)
+  </React.Fragment>)
 
 configure(require.context('../src', true, /\.stories\.tsx$/), module)
