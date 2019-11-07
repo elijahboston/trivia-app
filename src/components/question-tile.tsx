@@ -16,6 +16,7 @@ const Question = (props: QuestionProps) =>
     {props.children}
     <style jsx>{`
       .question {
+        min-height: 10rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,8 +24,9 @@ const Question = (props: QuestionProps) =>
   
         border-radius: 1rem;
         padding: 1rem;
-        background-color: ${props.backgroundColor ? props.backgroundColor : '#ccc'};
-        font-size: 2rem;
+        background-color: ${props.backgroundColor ? props.backgroundColor : '#fff'};
+        font-size: 1.5rem;
+        color: #000;
       }
     `}</style>
   </div>;

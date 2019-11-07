@@ -21,7 +21,7 @@ const ResultItem = (props: Question) =>
         align-items: center;
         padding: .5rem 0;
         margin: 0;
-        border-bottom: 1px solid #d2d2d2;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
       }
 
       li:last-child {
@@ -33,7 +33,7 @@ const ResultItem = (props: Question) =>
         margin-right: 1rem;
         border-radius: 20rem;
         font-size: .2rem;
-        background: rgba(0, 0, 0, 0.1);
+        background: #fff;
       }
 
       .question {

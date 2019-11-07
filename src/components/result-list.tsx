@@ -22,6 +22,10 @@ const ResultList = (props: ResultListProps) =>
         list-style-type: none;
         padding: 0;
         margin: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 20rem;
+        margin-bottom: 2rem;
       }
     `}</style>
   </div>;

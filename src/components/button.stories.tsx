@@ -7,8 +7,8 @@ import Icon from './icon';
 const stories = storiesOf('Button', module);
 stories.add('with text', () =>
   <Button
-    primaryColor='#ccc'
-    secondaryColor='#ddd'
+    primaryColor='#8EC5FC'
+    secondaryColor='#E0C3FC'
     onClick={action('clicked')}>
       Hello Button
   </Button>);
