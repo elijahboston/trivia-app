@@ -17,10 +17,10 @@ import {
  * Dispatch action for when the user answers a question.
  * @param answer The answer given by the user.
  */
-export function answerQuestion(answer: Answer): GameActionTypes {
+export function answerQuestion(payload: Answer): GameActionTypes {
   return {
     type: ANSWER_QUESTION,
-    payload: answer
+    payload
   }
 }
 

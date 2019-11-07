@@ -5,8 +5,8 @@ export const ANSWER_QUESTION = 'ANSWER_QUESTIONS';
 
 export const APP_INIT = 'APP_INIT';
 
-// State Types
-export interface QuestionType {
+export interface Question {
+  id: number,
   category: string,
   type: string,
   difficulty: string,
@@ -15,7 +15,13 @@ export interface QuestionType {
   answer?: boolean
 }
 
-export interface AppStateType {
+export interface Answer {
+  answer: boolean,
+  id: number
+}
+
+// State Types
+export interface AppState {
   /**
    * Whether the game data is loading.
    */
@@ -35,14 +41,9 @@ export interface AppStateType {
   /**
    * Our list of questions to ask.
    */
-  questions: QuestionType[],
+  questions: Question[],
   correctAnswers: number,
   incorrectAnswers: number,
-}
-
-export interface Answer {
-  answer: boolean,
-  questionNumber: number
 }
 
 // Actions

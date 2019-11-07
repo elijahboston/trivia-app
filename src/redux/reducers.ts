@@ -1,5 +1,5 @@
 import {
-  AppStateType,
+  AppState,
   GameActionTypes,
   START_GAME,
   RESET_GAME,
@@ -10,7 +10,7 @@ import {
   ApiActionTypes, API_DATA_LOADING, API_DATA_LOADED
 } from './api/types'
 
-const initialState: AppStateType = {
+const initialState: AppState = {
   isLoading: false,
   isGameStarted: false,
   isGameOver: false,
@@ -25,7 +25,7 @@ const appReducer = (
   state = initialState,
   /* eslint-enable */
   action: GameActionTypes | ApiActionTypes
-): AppStateType => {
+): AppState => {
   switch(action.type) {
     case START_GAME: {
       return {
@@ -45,18 +45,18 @@ const appReducer = (
       const {
         payload: {
           answer,
-          questionNumber
+          id
         }
       } = action
 
       const isGameOver = state.currentQuestion + 1 >= state.questions.length;
-      const isCorrect = state.questions[questionNumber].correctAnswer === answer
+      const isCorrect = state.questions[id].correctAnswer === answer
 
       // Create a copy of the questions from state to avoid mutation
       const questions = [...state.questions]
       
       // Update the answer on the question
-      questions[questionNumber].answer = answer
+      questions[id].answer = answer
 
       // Increment appropriate answer stats
       let answerStats = {};

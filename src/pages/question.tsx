@@ -1,38 +1,33 @@
 import * as React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {Button, Question, Layout} from '../components';
-import {AppStateType, ANSWER_QUESTION} from '../redux/types'
+import {Button, QuestionTile, Layout} from '../components';
+import {AppState, Answer} from '../redux/types'
+import {answerQuestion} from '../redux/actions'
 
 const QuestionPage = () => {
   const dispatch = useDispatch()
-  const question = useSelector((state: AppStateType) => state.questions[state.currentQuestion])
-  const questionNumber = useSelector((state: AppStateType) => state.currentQuestion)
+  const question = useSelector((state: AppState) => state.questions[state.currentQuestion])
+  const questionNumber = useSelector((state: AppState) => state.currentQuestion)
 
-  const answerQuestion = (answer: boolean) => {
-    dispatch({
-      type: ANSWER_QUESTION,
-      payload: {
-        answer,
-        questionNumber
-      }
-    })
+  const answerQuestion = (payload: Answer) => {
+    dispatch(answerQuestion(payload))
   }
 
   return (
     <Layout>
       <h1>{question.category}</h1>
       <h3>{questionNumber + 1}/10</h3>
-      <Question>
+      <QuestionTile>
         {question.question}
-      </Question>
+      </QuestionTile>
       <div className='controls'>
         <Button
-          onClick={() => answerQuestion(true)}
+          onClick={() => answerQuestion({ answer: true, id: question.id })}
           primaryColor='green'>
             True
         </Button>
         <Button
-          onClick={() => answerQuestion(false)}
+          onClick={() => answerQuestion({ answer: false, id: question.id })}
           primaryColor='red'>
             False
         </Button>

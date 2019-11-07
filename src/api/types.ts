@@ -1,4 +1,4 @@
-import {QuestionType} from '../redux/types';
+import {Question} from '../redux/types';
 
 /**
  * the structure of the questions as seen in the API response
@@ -22,7 +22,7 @@ export interface ApiResultType {
   /**
    * Array of questions from the API response.
    */
-  questions: QuestionType[],
+  questions: Question[],
   /**
    * The error -- if any -- that was returned from the response.
    */

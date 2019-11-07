@@ -5,7 +5,7 @@ import {
 } from './types'
 
 import {
-  QuestionType
+  Question
 } from '../types'
 
 
@@ -15,7 +15,7 @@ export function apiDataLoading(): ApiActionTypes {
   }
 }
 
-export function apiDataLoaded(questions: QuestionType[]): ApiActionTypes {
+export function apiDataLoaded(questions: Question[]): ApiActionTypes {
   return {
     type: API_DATA_LOADED,
     payload: { questions }

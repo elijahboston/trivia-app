@@ -1,18 +1,19 @@
 import * as React from 'react'
 import { default as test } from 'ava'
 import reducers from './reducers'
-import {ANSWER_QUESTION, AppStateType, QuestionType} from './types'
+import {ANSWER_QUESTION, AppState, Question} from './types'
 
 /**
  * Generator to give us predictable questions to populate state
  */
-function* mockQuestion(): Generator<QuestionType> {
+function* mockQuestion(): Generator<Question> {
 	let i = 0
 	let answer = true
 
 	while (true) {
 		yield(
 			{
+				id: i,
 				category: 'Test Category',
 				type: 'boolean',
 				difficulty: 'hard',
@@ -28,7 +29,7 @@ function* mockQuestion(): Generator<QuestionType> {
 
 const getQuestion = mockQuestion()
 
-const initialState: AppStateType = {
+const initialState: AppState = {
 	isLoading: false,
 	isGameStarted: false,
 	isGameOver: false,

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Loading from './loading'
 
 interface LayoutProps {
   children: any
@@ -6,6 +7,7 @@ interface LayoutProps {
 
 const Layout = (props: LayoutProps) =>
   <div className='layout'>
+    <Loading />
     {props.children}
     <style jsx>{`
       display: flex;
@@ -17,7 +19,8 @@ const Layout = (props: LayoutProps) =>
       padding: 1rem;
       border-radius: 1rem;
       
-      background: #f1f1f1;
+      background-color: #FF3CAC;
+      background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);      
     `}</style>
   </div>
 

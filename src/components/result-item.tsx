@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Icon from './icon';
-import {QuestionType} from '../redux/types'
+import {Question} from '../redux/types'
 
-const ResultItem = (props: QuestionType) =>
+const ResultItem = (props: Question) =>
   <li className='result-item'>
     <span className='is-correct'>
       <Icon
@@ -19,8 +19,8 @@ const ResultItem = (props: QuestionType) =>
         display: flex;
         justify-content: left;
         align-items: center;
-        padding: 0;
-        margin: .5rem 0;
+        padding: .5rem 0;
+        margin: 0;
         border-bottom: 1px solid #d2d2d2;
       }
 
@@ -32,7 +32,8 @@ const ResultItem = (props: QuestionType) =>
         align-self: flex-start;
         margin-right: 1rem;
         border-radius: 20rem;
-        background: #ccc;
+        font-size: .2rem;
+        background: rgba(0, 0, 0, 0.1);
       }
 
       .question {

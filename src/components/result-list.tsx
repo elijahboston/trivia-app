@@ -1,18 +1,18 @@
 import * as React from 'react'
-import {QuestionType} from '../redux/types'
+import {Question} from '../redux/types'
 import { default as ResultItem} from './result-item'
 
 export interface ResultListProps {
   /**
    * Child elements wrapped by the ResultList component.
    */
-  entries: QuestionType[]
+  entries: Question[]
 }
 
 const ResultList = (props: ResultListProps) =>
   <div className='result-list'>
     <ul>
-      {props.entries.map((entry: QuestionType) => <ResultItem { ...entry }/>)}
+      {props.entries.map((entry: Question) => <ResultItem { ...entry }/>)}
     </ul>
     <style jsx>{`
       ul {
