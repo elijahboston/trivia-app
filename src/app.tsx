@@ -8,9 +8,15 @@ const App = () =>
     <Router />
     <style jsx global>{`
       html {
-        margin: 0;
-        padding: 0;
         font-family: 'Open Sans', sans-serif;
+        margin: 1rem;
+        padding: 0;
+      }
+
+      #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     `}</style>
   </Provider>

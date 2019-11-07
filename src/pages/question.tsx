@@ -21,17 +21,27 @@ const QuestionPage = () => {
   return (
     <Layout>
       <h1>{question.category}</h1>
+      <h3>{questionNumber + 1}/10</h3>
       <Question>
         {question.question}
       </Question>
       <div className='controls'>
-        <Button onClick={() => answerQuestion(true)}>True</Button>
-        <Button onClick={() => answerQuestion(false)}>False</Button>
+        <Button
+          onClick={() => answerQuestion(true)}
+          primaryColor={'green'}>
+            True
+        </Button>
+        <Button
+          onClick={() => answerQuestion(false)}
+          primaryColor={'red'}>
+            False
+        </Button>
       </div>
       <style jsx>{`
         .controls {
           display: flex;
-          justify-content: space-between;
+          justify-content: space-around;
+          width: 100%;
         }
       `}</style>
     </Layout>

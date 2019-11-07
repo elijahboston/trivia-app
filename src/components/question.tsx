@@ -19,8 +19,9 @@ const Question = (props: QuestionProps) =>
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        margin: 1rem;
   
+        border-radius: 1rem;
         padding: 1rem;
         background-color: ${props.backgroundColor ? props.backgroundColor : '#ccc'};
         font-size: 2rem;

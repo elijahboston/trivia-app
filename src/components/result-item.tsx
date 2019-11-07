@@ -20,12 +20,19 @@ const ResultItem = (props: QuestionType) =>
         justify-content: left;
         align-items: center;
         padding: 0;
-        margin: 0;
+        margin: .5rem 0;
+        border-bottom: 1px solid #d2d2d2;
+      }
+
+      li:last-child {
+        border-bottom: none;
       }
 
       .is-correct {
         align-self: flex-start;
         margin-right: 1rem;
+        border-radius: 20rem;
+        background: #ccc;
       }
 
       .question {

@@ -12,9 +12,12 @@ const Layout = (props: LayoutProps) =>
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      max-width: 800px
 
-      background: #d3d;
+      max-width: 800px;
+      padding: 1rem;
+      border-radius: 1rem;
+      
+      background: #f1f1f1;
     `}</style>
   </div>
 
