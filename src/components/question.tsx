@@ -8,7 +8,7 @@ interface QuestionProps {
   /**
    * Hex or RGBA value for the question's background color.
    */
-  backgroundColor: string
+  backgroundColor?: string
 }
 
 const Question = (props: QuestionProps) =>
@@ -19,10 +19,11 @@ const Question = (props: QuestionProps) =>
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        margin: 1rem;
   
+        border-radius: 1rem;
         padding: 1rem;
-        background-color: ${props.backgroundColor};
+        background-color: ${props.backgroundColor ? props.backgroundColor : '#ccc'};
         font-size: 2rem;
       }
     `}</style>

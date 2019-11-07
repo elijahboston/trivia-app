@@ -4,7 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Question from './question';
 
-const stories = storiesOf('Question', module);
+const stories = storiesOf('Question Tile', module);
 stories.addDecorator(withKnobs);
 stories.add('with text', () => <div>
   <Question backgroundColor='#ccc'>{text('Text', 'Hello Storybook')}</Question>

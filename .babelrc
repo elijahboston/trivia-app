@@ -1,13 +1,14 @@
 {
     "plugins": [
-      ["styled-jsx/babel", { "optimizeForSpeed": true }]
+      ["styled-jsx/babel", { "optimizeForSpeed": true }],
+      "@babel/plugin-transform-regenerator"
     ],
     "presets": [
       [
         "@babel/preset-env",
         {
           "useBuiltIns": "entry",
-          "corejs": 2
+          "corejs": 3
         }
       ],
       "@babel/preset-react",

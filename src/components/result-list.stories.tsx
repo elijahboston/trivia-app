@@ -7,12 +7,20 @@ const stories = storiesOf('Result List', module);
 stories.add('list with items', () => <div>
   <ResultList entries={[
     {
-      question: 'What is yam?',
-      isAnswerCorrect: false
+      type: 'boolean',
+      category: 'Arts',
+      difficulty: 'hard',
+      question: 'Is yellow purple?',
+      correctAnswer: true,
+      answer: false
     },
     {
-      question: 'What is yellow?',
-      isAnswerCorrect: true
+      type: 'boolean',
+      category: 'True Crime',
+      difficulty: 'hard',
+      question: 'Is up down?',
+      correctAnswer: true,
+      answer: true
     }
   ]} />
   <style jsx>{`
