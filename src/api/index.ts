@@ -1,5 +1,5 @@
 import {default as axios} from 'axios'
-import {XmlEntities} from 'html-entities'
+import {default as parser} from 'html-react-parser'
 import {
   ApiArgs,
   ApiResult,
@@ -8,7 +8,6 @@ import {
 } from './types'
 
 const API_URL = 'https://opentdb.com/api.php';
-const entities = new XmlEntities()
 
 /**
  * Handle interacting with the OpenTable API
@@ -44,7 +43,7 @@ const api = (args: ApiArgs): ApiHandler => {
             category,
             type,
             difficulty,
-            question: entities.decode(question),
+            question: parser(question),
             correctAnswer: correctAnswerStr === 'True'
           }
         })
