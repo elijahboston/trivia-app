@@ -40,12 +40,12 @@ export interface AppStateType {
   incorrectAnswers: number,
 }
 
-// Action Types
 export interface Answer {
   answer: boolean,
   questionNumber: number
 }
 
+// Actions
 interface AppInitialize {
   type: typeof APP_INIT
 }

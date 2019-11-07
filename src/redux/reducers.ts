@@ -1,7 +1,6 @@
 import {
   AppStateType,
   GameActionTypes,
-  QuestionType,
   START_GAME,
   RESET_GAME,
   ANSWER_QUESTION
@@ -21,66 +20,83 @@ const initialState: AppStateType = {
   incorrectAnswers: 0
 }
 
-function appReducer(
+const appReducer = (
+  /* eslint-disable default-param-last */
   state = initialState,
+  /* eslint-enable */
   action: GameActionTypes | ApiActionTypes
-): AppStateType {
+): AppStateType => {
   switch(action.type) {
-    case START_GAME:
+    case START_GAME: {
       return {
         ...state,
         isGameStarted: true,
         isGameOver: false
       }
-    case RESET_GAME:
+    }
+    case RESET_GAME: {
       return {
         ...state,
         isGameStarted: false,
         isGameOver: false
       }
-    case ANSWER_QUESTION:
-      let isCorrect = false
-      const questions =  state.questions
-        .map((q: QuestionType, i: number): QuestionType => {
-          // Update the question with the user's answer
-          if (i === action.payload.questionNumber) {
-            q.answer = action.payload.answer;
+    }
+    case ANSWER_QUESTION: {
+      const {
+        payload: {
+          answer,
+          questionNumber
+        }
+      } = action
 
-            if (q.answer === q.correctAnswer) {
-              isCorrect = true
-            }
-          }
-
-          return q;
-        })
-      
       const isGameOver = state.currentQuestion + 1 >= 10;
+      const isCorrect = state.questions[questionNumber].correctAnswer === answer
+
+      // Create a copy of the questions from state to avoid mutation
+      const questions = Object.assign({}, state.questions)
+      
+      // Update the answer on the question
+      questions[questionNumber].answer = answer
+
+      // Increment appropriate answer stats
+      let answerStats = {};
+
+      // Handle logic here instead of within the return
+      if (isCorrect) {
+        answerStats = {
+          correctAnswers: state.correctAnswers + 1,
+        }
+      } else {
+        answerStats = {
+          incorrectAnswers: state.incorrectAnswers + 1,
+        }
+      }
 
       return {
         ...state,
-        // Increment stats
-        correctAnswers: isCorrect ? state.correctAnswers + 1 : state.correctAnswers,
-        incorrectAnswers: !isCorrect ? state.incorrectAnswers + 1 : state.incorrectAnswers,
-        // Update game state
-        currentQuestion: isGameOver ? 0 : state.currentQuestion + 1,
+        ...answerStats,
+        currentQuestion: state.currentQuestion + 1,
         isGameOver,
-        isGameStarted: !isGameOver,
         // Update state with the answered question
         questions
       }
-    case API_DATA_LOADING:
+    }
+    case API_DATA_LOADING: {
       return {
         ...state,
         isLoading: true
       }
-    case API_DATA_LOADED:
-        return {
-          ...state,
-          isLoading: false,
-          questions: action.payload.questions
-        }
-    default:
+    }
+    case API_DATA_LOADED: {
+      return {
+        ...state,
+        isLoading: false,
+        questions: action.payload.questions
+      }
+    }
+    default: {
       return state
+    }
   }
 }
 

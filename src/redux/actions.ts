@@ -30,14 +30,14 @@ export function startGame(): GameActionTypes {
   }
 }
 
-export function initializeApp(): any {
+export function initializeApp() {
   return async function(dispatch: Dispatch) {
-    dispatch(apiDataLoading());
+    dispatch(apiDataLoading())
 
-    const resp = await <Promise<ApiResultType>>api.getQuestions()
+    const resp: ApiResultType = await api.getQuestions()
 
-    dispatch(apiDataLoaded(resp.questions));
+    dispatch(apiDataLoaded(resp.questions))
 
-    dispatch(startGame());
+    dispatch(startGame())
   }
 }

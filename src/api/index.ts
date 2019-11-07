@@ -8,13 +8,14 @@ import {
 } from './types'
 
 const API_URL = 'https://opentdb.com/api.php';
+const entities = new XmlEntities()
 
 /**
  * Handle interacting with the OpenTable API
  * @param args Arguments to set as query string parameters
  */
 const api = (args: ApiArgsType): ApiHandlerType => {
-  const getUrl = function () {
+  const getUrl = function (): string {
     const {
       amount,
       difficulty,
@@ -42,7 +43,7 @@ const api = (args: ApiArgsType): ApiHandlerType => {
             category,
             type,
             difficulty,
-            question: XmlEntities.decode(question),
+            question: entities.decode(question),
             correctAnswer: correctAnswerStr === 'True'
           }
         })
