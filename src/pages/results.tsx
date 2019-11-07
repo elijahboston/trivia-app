@@ -1,9 +1,11 @@
 import * as React from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {AppState, Question} from '../redux/types'
 import {Button, Layout, ResultList} from '../components'
+import {resetGame} from '../redux/game/actions'
 
 const ResultsPage = () => {
+  const dispatch = useDispatch()
   const questions: Question[] = useSelector((state: AppState) => state.game.questions)
   const correctAnswers: number = useSelector((state: AppState) => state.game.correctAnswers)
 
@@ -11,7 +13,7 @@ const ResultsPage = () => {
     <Layout>
       <h1>You scored {correctAnswers}/{questions.length}</h1>
       <ResultList entries={questions} />
-      <Button onClick={() => {}}>Play Again?</Button>
+      <Button onClick={() => dispatch(resetGame())}>Play Again?</Button>
     </Layout>
   )
 }

@@ -3,6 +3,7 @@ import {
   Answer,
   GameActionTypes,
   START_GAME,
+  RESET_GAME,
   GAME_DATA_LOADED,
   ANSWER_QUESTION
 } from '../types'
@@ -28,5 +29,11 @@ export function gameDataLoaded(questions: Question[]): GameActionTypes {
 export function startGame(): GameActionTypes {
   return {
     type: START_GAME
+  }
+}
+
+export function resetGame(): GameActionTypes {
+  return {
+    type: RESET_GAME
   }
 }

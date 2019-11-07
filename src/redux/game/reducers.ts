@@ -3,7 +3,8 @@ import {
   GameActionTypes,
   START_GAME,
   RESET_GAME,
-  ANSWER_QUESTION
+  ANSWER_QUESTION,
+  GAME_DATA_LOADED
 } from '../types'
 
 const initialState: GameState = {
@@ -30,10 +31,12 @@ const gameReducer = (
       }
     }
     case RESET_GAME: {
+      return initialState
+    }
+    case GAME_DATA_LOADED: {
       return {
         ...state,
-        isGameStarted: false,
-        isGameOver: false
+        questions: action.payload.questions
       }
     }
     case ANSWER_QUESTION: {
