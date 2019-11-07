@@ -49,11 +49,11 @@ const appReducer = (
         }
       } = action
 
-      const isGameOver = state.currentQuestion + 1 >= 10;
+      const isGameOver = state.currentQuestion + 1 >= state.questions.length;
       const isCorrect = state.questions[questionNumber].correctAnswer === answer
 
       // Create a copy of the questions from state to avoid mutation
-      const questions = Object.assign({}, state.questions)
+      const questions = [...state.questions]
       
       // Update the answer on the question
       questions[questionNumber].answer = answer
