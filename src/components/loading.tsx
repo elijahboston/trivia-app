@@ -6,7 +6,7 @@ import {AppState} from '../redux/types'
  * This component is always on the page, just not always visible
  */
 const Loading = () => {
-  const isLoading = useSelector((state: AppState) => state.isLoading)
+  const isLoading = useSelector((state: AppState) => state.api.isLoading)
 
   return (
     <div className='loading'>

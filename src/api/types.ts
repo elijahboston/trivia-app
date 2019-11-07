@@ -3,7 +3,7 @@ import {Question} from '../redux/types';
 /**
  * the structure of the questions as seen in the API response
  */
-export interface ApiResponseItemType {
+export interface ApiResponseItem {
   category: string,
   type: string,
   difficulty: string,
@@ -18,7 +18,7 @@ export interface ApiResponseItemType {
 /**
  * The returned data from our API handler
  */
-export interface ApiResultType {
+export interface ApiResult {
   /**
    * Array of questions from the API response.
    */
@@ -32,7 +32,7 @@ export interface ApiResultType {
 /**
  * Arguments set in the query string of the API request
  */
-export interface ApiArgsType {
+export interface ApiArgs {
   /**
    * Number of questions (default: 10)
    */
@@ -47,9 +47,9 @@ export interface ApiArgsType {
   type: string
 }
 
-export interface ApiHandlerType {
+export interface ApiHandler {
   /**
    * Fetch a list of questions from the API
    */
-  getQuestions(): Promise<ApiResultType>
+  getQuestions(): Promise<ApiResult>
 }

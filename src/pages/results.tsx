@@ -4,8 +4,8 @@ import {AppState, Question} from '../redux/types'
 import {Button, Layout, ResultList} from '../components'
 
 const ResultsPage = () => {
-  const questions: Question[] = useSelector((state: AppState) => state.questions)
-  const correctAnswers: number = useSelector((state: AppState) => state.correctAnswers)
+  const questions: Question[] = useSelector((state: AppState) => state.game.questions)
+  const correctAnswers: number = useSelector((state: AppState) => state.game.correctAnswers)
 
   return (
     <Layout>

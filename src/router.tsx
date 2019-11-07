@@ -9,7 +9,9 @@ import {AppState} from './redux/types'
  */
 const Router = () => {
   const gameState = useSelector((state: AppState) => {
-    const { isLoading, isGameStarted, isGameOver } = state;
+    const { game, api } = state;
+    const { isLoading } = api;
+    const { isGameStarted, isGameOver } = game;
     return {
       isLoading,
       isGameStarted,

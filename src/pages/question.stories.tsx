@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import {Provider, ReactReduxContext} from 'react-redux'
-import {API_DATA_LOADED} from '../redux/api/types'
+import {API_DATA_LOADED} from '../redux/types'
 import store from '../redux/store'
 import QuestionPage from './question'
 

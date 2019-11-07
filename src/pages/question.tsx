@@ -6,10 +6,10 @@ import {answerQuestion} from '../redux/actions'
 
 const QuestionPage = () => {
   const dispatch = useDispatch()
-  const question = useSelector((state: AppState) => state.questions[state.currentQuestion])
-  const questionNumber = useSelector((state: AppState) => state.currentQuestion)
+  const question = useSelector((state: AppState) => state.game.questions[state.game.currentQuestionId])
+  const questionNumber = useSelector((state: AppState) => state.game.currentQuestionId)
 
-  const answerQuestion = (payload: Answer) => {
+  const clickHandler = (payload: Answer) => {
     dispatch(answerQuestion(payload))
   }
 
@@ -22,12 +22,12 @@ const QuestionPage = () => {
       </QuestionTile>
       <div className='controls'>
         <Button
-          onClick={() => answerQuestion({ answer: true, id: question.id })}
+          onClick={() => clickHandler({ answer: true, id: question.id })}
           primaryColor='green'>
             True
         </Button>
         <Button
-          onClick={() => answerQuestion({ answer: false, id: question.id })}
+          onClick={() => clickHandler({ answer: false, id: question.id })}
           primaryColor='red'>
             False
         </Button>

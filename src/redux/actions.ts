@@ -1,43 +1,23 @@
-import { Dispatch } from 'redux'
+import {Dispatch} from 'redux'
 import api from '../api'
-import { ApiResultType } from '../api/types'
-import {
-  Answer,
-  ANSWER_QUESTION,
-  START_GAME,
-  GameActionTypes
-} from './types'
-import {
-  apiDataLoaded,
-  apiDataLoading
-} from './api/actions'
+import {apiDataLoaded, apiDataLoading} from './api/actions'
+import {startGame, gameDataLoaded} from './game/actions'
+import {ApiResult} from '../api/types'
 
+// Only expose actions that are needed by components
+export {startGame, answerQuestion} from './game/actions'
 
 /**
- * Dispatch action for when the user answers a question.
- * @param answer The answer given by the user.
+ * Simple thunk to fetch API results
  */
-export function answerQuestion(payload: Answer): GameActionTypes {
-  return {
-    type: ANSWER_QUESTION,
-    payload
-  }
-}
-
-export function startGame(): GameActionTypes {
-  return {
-    type: START_GAME
-  }
-}
-
 export function initializeApp() {
   return async function(dispatch: Dispatch) {
     dispatch(apiDataLoading())
 
-    const resp: ApiResultType = await api.getQuestions()
+    const resp: ApiResult = await api.getQuestions()
 
-    dispatch(apiDataLoaded(resp.questions))
-
+    dispatch(apiDataLoaded())
+    dispatch(gameDataLoaded(resp.questions))
     dispatch(startGame())
   }
 }

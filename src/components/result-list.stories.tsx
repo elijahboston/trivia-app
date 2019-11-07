@@ -7,6 +7,7 @@ const stories = storiesOf('Result List', module);
 stories.add('list with items', () => <div>
   <ResultList entries={[
     {
+      id: 0,
       type: 'boolean',
       category: 'Arts',
       difficulty: 'hard',
@@ -15,6 +16,7 @@ stories.add('list with items', () => <div>
       answer: false
     },
     {
+      id: 1,
       type: 'boolean',
       category: 'True Crime',
       difficulty: 'hard',

@@ -12,7 +12,7 @@ export interface ResultListProps {
 const ResultList = (props: ResultListProps) =>
   <div className='result-list'>
     <ul>
-      {props.entries.map((entry: Question) => <ResultItem { ...entry }/>)}
+      {props.entries.map((entry: Question) => <ResultItem key={entry.id} {...entry} />)}
     </ul>
     <style jsx>{`
       ul {

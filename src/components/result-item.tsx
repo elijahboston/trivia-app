@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Icon from './icon';
+import * as React from 'react'
+import Icon from './icon'
 import {Question} from '../redux/types'
 
 const ResultItem = (props: Question) =>
