@@ -28,12 +28,12 @@ const QuestionPage = () => {
       <div className='controls'>
         <Button
           onClick={() => answerQuestion(true)}
-          primaryColor={'green'}>
+          primaryColor='green'>
             True
         </Button>
         <Button
           onClick={() => answerQuestion(false)}
-          primaryColor={'red'}>
+          primaryColor='red'>
             False
         </Button>
       </div>

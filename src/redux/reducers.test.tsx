@@ -38,7 +38,6 @@ const initialState: AppStateType = {
 	incorrectAnswers: 0
 }
 
-
 test('should update game state for ANSWER_QUESTION dispatch', t => {
 	const state = initialState
 
