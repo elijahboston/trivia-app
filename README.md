@@ -33,3 +33,9 @@ Run any of these with `npm run <command>`
 - Linting handled by **xo**, with **Prettier** formatting enabled
 - **Storybook** integration
 - **Netlify** integration
+
+## DevNotes
+- I'm transpiling TypeScript using Babel, this enables using libraries like `styled-jsx`.
+
+## Testing
+UI testing can be done manually using Storybook, or programatically using Enzyme. Most of the testing complexity in this project revolves around state management, so reducer tests are included.
