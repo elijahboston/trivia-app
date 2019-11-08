@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TypedocWebpackPlugin = require('typedoc-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -12,9 +11,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new TypedocWebpackPlugin({
-      jsx: 'react'
-    }),
     new HtmlWebpackPlugin({
       title: 'Trivia App',
       template: './static/index.html'
