@@ -7,7 +7,7 @@ import {GameState, Question} from '../types'
 /**
  * Generator to give us predictable questions to populate state
  */
-function* mockQuestion(): Generator<Question> {
+function* mockQuestion(): Iterator<Question> {
 	let i = 0
 	let answer = true
 
