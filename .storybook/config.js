@@ -1,17 +1,11 @@
 import * as React from 'react'
 import { configure, addDecorator } from '@storybook/react'
-import {Layout} from '../src/components'
+import globalStyle from '../src/styles/global'
 
 addDecorator(storyFn =>
   <React.Fragment>
     {storyFn()}
-    <style jsx global>{`
-      html {
-        font-family: 'Open Sans', sans-serif;
-        margin: 1rem;
-        padding: 0;
-      }
-    `}</style>
+    <style jsx global>{globalStyle}</style>
   </React.Fragment>)
 
 configure(require.context('../src', true, /\.stories\.tsx$/), module)
