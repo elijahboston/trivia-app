@@ -2,6 +2,7 @@ import * as React from 'react'
 import {useSelector} from 'react-redux'
 import {SplashPage, QuestionPage, ResultPage} from './pages'
 import {AppState} from './redux/types'
+import {Loading} from './components'
 
 /**
  * A simple state-based router. We use isLoading, isGameOver, and isGameStarted
@@ -20,7 +21,7 @@ const Router = () => {
     }
   });
 
-  if (gameState.isLoading) return <div>Loading...</div>
+  if (gameState.isLoading) return <Loading />
 
   if (gameState.isGameOver) return <ResultPage />
   
