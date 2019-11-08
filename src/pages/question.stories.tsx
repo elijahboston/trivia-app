@@ -2,17 +2,20 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import {Provider, ReactReduxContext} from 'react-redux'
 import {gameDataLoaded} from '../redux/game/actions'
+import {apiDataLoaded} from '../redux/api/actions'
 import store from '../redux/store'
 import QuestionPage from './question'
+import Layout from '../components/layout'
 
-const stories = storiesOf('Question Page', module);
+const stories = storiesOf('Pages', module);
 
-stories.add('default', () =>
+stories.add('Questions', () =>
   <Provider store={store}>
     <ReactReduxContext.Consumer>
       {({ store }) => {
         // Populate the store with a question
         // so we have something to render
+        store.dispatch(apiDataLoaded())
         store.dispatch(gameDataLoaded([
           {
             id: 0,
