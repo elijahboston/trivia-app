@@ -16,7 +16,7 @@ const Layout = (props: LayoutProps) =>
         justify-content: center;
         align-items: center;
   
-        max-width: 40rem;
+        width: 90%;
         padding: 1rem;
         border-radius: .2rem;
       }

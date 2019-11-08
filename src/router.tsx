@@ -4,7 +4,8 @@ import {SplashPage, QuestionPage, ResultPage} from './pages'
 import {AppState} from './redux/types'
 
 /**
- * A simple state based router component.
+ * A simple state-based router. We use isLoading, isGameOver, and isGameStarted
+ * to determine where the user should be in the application.
  * @param props The game state to use for routing.
  */
 const Router = () => {
