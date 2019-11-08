@@ -10,7 +10,7 @@
     "lint": "xo",
     "dev": "webpack-dev-server --config webpack.dev.js --color",
     "build": "webpack --config webpack.prod.js",
-    "build-docs": "typedoc --out docs /src",
+    "build-docs": "typedoc --out docs ./src",
     "storybook": "start-storybook"
   },
   "repository": {
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/elijahboston/trivia-app#readme",
   "dependencies": {
-    "@types/html-entities": "^1.2.16",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/react-redux": "^7.1.5",
@@ -34,8 +33,7 @@
     "@types/styled-jsx": "^2.2.8",
     "axios": "^0.19.0",
     "core-js": "^3.3.6",
-    "html-entities": "^1.2.1",
-    "prop-types": "^15.7.2",
+    "html-react-parser": "^0.9.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.2",
@@ -73,10 +71,9 @@
     "html-webpack-plugin": "^3.2.0",
     "jsdom": "^15.2.1",
     "react-docgen-typescript-loader": "^3.3.0",
+    "regenerator-runtime": "^0.13.3",
     "ts-loader": "^6.2.1",
-    "ts-node": "^8.4.1",
     "typedoc": "^0.15.0",
-    "typedoc-webpack-plugin": "^1.1.4",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
@@ -92,7 +89,8 @@
       "ts"
     ],
     "ignores": [
-      "webpack.*.js"
+      "webpack.*.js",
+      "docs/"
     ]
   },
   "ava": {
@@ -103,12 +101,14 @@
       "tsx"
     ],
     "require": [
-      "ts-node/register",
+      "./test-helpers/_babel-register.js",
+      "./test-helpers/_polyfills.ts",
       "./test-helpers/_setup-browser.ts",
       "./test-helpers/_setup-enzyme.ts"
     ],
     "files": [
-      "!dist/**/*"
+      "!dist/**/*",
+      "!docs/**/*"
     ]
   }
 }

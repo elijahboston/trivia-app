@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {default as React, useCallback, useState} from 'react'
 
 interface ButtonProps {
   /**
@@ -19,17 +19,47 @@ interface ButtonProps {
   secondaryColor?: string
 }
 
-const Button = (props: ButtonProps) =>
-  <button onClick={props.onClick}>
-    {props.children}
-    <style jsx>{`
-      button {
-        font-size: 1.2rem;
-        padding: .5rem .8rem;
-        border-radius: .2rem;
-        border: 0px;
-      }
-    `}</style>
-  </button>;
+const Button = (props: ButtonProps) => {
+  
+  const [isPressed, setIsPressed] = useState(false)
+
+  const buttonClass = isPressed ? 'animated pulse faster' : ''
+
+  /**
+   * A helper function that intercepts the click action and delays
+   * it until the animation has completed
+   * @param evt The click event
+   */
+  const handleClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    setIsPressed(true)
+
+    setTimeout(() => {
+      setIsPressed(false)
+      props.onClick(evt)
+    }, 500)
+  }
+
+  return (
+    <button
+    onClick={handleClick}
+    className={`button ${buttonClass}`}>
+      {props.children}
+      <style jsx>{`
+        button {
+          outline: none;
+          font-size: 2rem;
+          padding: .5rem .8rem;
+          border-radius: .2rem;
+          border: 0px;
+          box-shadow: 0px 6px 0px #67b3ff, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+          background: ${props.primaryColor ? props.primaryColor : '#8EC5FC'};
+          background: linear-gradient(to right,
+            ${props.primaryColor ? props.primaryColor : '#8EC5FC'},
+            ${props.secondaryColor ? props.secondaryColor : '#E0C3FC'});
+        }
+      `}</style>
+    </button>
+  )
+}
 
 export default Button;

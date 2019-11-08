@@ -1,18 +1,18 @@
 import * as React from 'react'
-import {QuestionType} from '../redux/types'
+import {Question} from '../redux/types'
 import { default as ResultItem} from './result-item'
 
 export interface ResultListProps {
   /**
    * Child elements wrapped by the ResultList component.
    */
-  entries: QuestionType[]
+  entries: Question[]
 }
 
 const ResultList = (props: ResultListProps) =>
   <div className='result-list'>
     <ul>
-      {props.entries.map((entry: QuestionType) => <ResultItem { ...entry }/>)}
+      {props.entries.map((entry: Question) => <ResultItem key={entry.id} {...entry} />)}
     </ul>
     <style jsx>{`
       ul {
@@ -22,6 +22,13 @@ const ResultList = (props: ResultListProps) =>
         list-style-type: none;
         padding: 0;
         margin: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 20rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        box-shadow: inset 1px 1px 5px 0px rgba(255,255,255,1);
+        padding: 1rem;
       }
     `}</style>
   </div>;

@@ -2,10 +2,6 @@ import {
   API_DATA_LOADED,
   API_DATA_LOADING,
   ApiActionTypes
-} from './types'
-
-import {
-  QuestionType
 } from '../types'
 
 
@@ -15,9 +11,8 @@ export function apiDataLoading(): ApiActionTypes {
   }
 }
 
-export function apiDataLoaded(questions: QuestionType[]): ApiActionTypes {
+export function apiDataLoaded(): ApiActionTypes {
   return {
-    type: API_DATA_LOADED,
-    payload: { questions }
+    type: API_DATA_LOADED
   }
 }

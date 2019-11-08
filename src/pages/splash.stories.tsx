@@ -4,8 +4,8 @@ import {Provider} from 'react-redux'
 import store from '../redux/store'
 import SplashPage from './splash'
 
-const stories = storiesOf('Splash Page', module);
-stories.add('default', () => 
+const stories = storiesOf('Pages', module);
+stories.add('Splash', () => 
   <Provider store={store}>
     <SplashPage />
   </Provider>

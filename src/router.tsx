@@ -1,15 +1,19 @@
 import * as React from 'react'
 import {useSelector} from 'react-redux'
 import {SplashPage, QuestionPage, ResultPage} from './pages'
-import {AppStateType} from './redux/types'
+import {AppState} from './redux/types'
+import {Loading} from './components'
 
 /**
- * A simple state based router component.
+ * A simple state-based router. We use isLoading, isGameOver, and isGameStarted
+ * to determine where the user should be in the application.
  * @param props The game state to use for routing.
  */
 const Router = () => {
-  const gameState = useSelector((state: AppStateType) => {
-    const { isLoading, isGameStarted, isGameOver } = state;
+  const gameState = useSelector((state: AppState) => {
+    const { game, api } = state;
+    const { isLoading } = api;
+    const { isGameStarted, isGameOver } = game;
     return {
       isLoading,
       isGameStarted,
@@ -17,7 +21,7 @@ const Router = () => {
     }
   });
 
-  if (gameState.isLoading) return <div>Loading...</div>
+  if (gameState.isLoading) return <Loading />
 
   if (gameState.isGameOver) return <ResultPage />
   

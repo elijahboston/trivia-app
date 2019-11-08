@@ -11,6 +11,11 @@ const SplashPage = () => {
       <p>You will be presented with 10 True or False questions!</p>
       <p>Can you score 100%?</p>
       <Button onClick={() => dispatch(initializeApp())}>Begin</Button>
+      <style jsx>{`
+        h1, p {
+          text-align: center;
+        }
+      `}</style>
     </Layout>
   )
 }

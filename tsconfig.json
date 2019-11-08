@@ -17,6 +17,8 @@
   ],
   "exclude": [
     "webpack.*.js",
+    "_babel-register.js",
+    "docs",
     "node_modules"
   ]
 }

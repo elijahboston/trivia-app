@@ -1,20 +1,19 @@
 import {default as axios} from 'axios'
-import {XmlEntities} from 'html-entities'
+import {default as parser} from 'html-react-parser'
 import {
-  ApiArgsType,
-  ApiResultType,
-  ApiResponseItemType,
-  ApiHandlerType
+  ApiArgs,
+  ApiResult,
+  ApiResponseItem,
+  ApiHandler
 } from './types'
 
 const API_URL = 'https://opentdb.com/api.php';
-const entities = new XmlEntities()
 
 /**
  * Handle interacting with the OpenTable API
  * @param args Arguments to set as query string parameters
  */
-const api = (args: ApiArgsType): ApiHandlerType => {
+const api = (args: ApiArgs): ApiHandler => {
   const getUrl = function (): string {
     const {
       amount,
@@ -26,11 +25,11 @@ const api = (args: ApiArgsType): ApiHandlerType => {
   }
 
   return {
-    getQuestions: async (): Promise<ApiResultType> => {
+    getQuestions: async (): Promise<ApiResult> => {
       try {
         const resp = await axios.get(getUrl());
 
-        const questions = resp.data.results.map((item: ApiResponseItemType) => {
+        const questions = resp.data.results.map((item: ApiResponseItem, index: number) => {
           const {
             category,
             type,
@@ -40,10 +39,11 @@ const api = (args: ApiArgsType): ApiHandlerType => {
           } = item;
 
           return {
+            id: index,
             category,
             type,
             difficulty,
-            question: entities.decode(question),
+            question: parser(question),
             correctAnswer: correctAnswerStr === 'True'
           }
         })

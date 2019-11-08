@@ -2,12 +2,12 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import Question from './question';
+import QuestionTile from './question-tile';
 
 const stories = storiesOf('Question Tile', module);
 stories.addDecorator(withKnobs);
 stories.add('with text', () => <div>
-  <Question backgroundColor='#ccc'>{text('Text', 'Hello Storybook')}</Question>
+  <QuestionTile>{text('Text', 'Hello Storybook')}</QuestionTile>
   <style jsx>{`
     div {
       display: flex;
