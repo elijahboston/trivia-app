@@ -1,6 +1,7 @@
 # Trivia App
 A ten question trivia game.
 
+**Github:** https://github.com/elijahboston/trivia-app
 **Live App:** https://reverent-brahmagupta-578276.netlify.com/
 
 ## Quick Start
