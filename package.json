@@ -10,7 +10,7 @@
     "lint": "xo",
     "dev": "webpack-dev-server --config webpack.dev.js --color",
     "build": "webpack --config webpack.prod.js",
-    "build-docs": "typedoc --out docs /src",
+    "build-docs": "typedoc --out docs ./src",
     "storybook": "start-storybook"
   },
   "repository": {
@@ -74,7 +74,6 @@
     "regenerator-runtime": "^0.13.3",
     "ts-loader": "^6.2.1",
     "typedoc": "^0.15.0",
-    "typedoc-webpack-plugin": "^1.1.4",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
