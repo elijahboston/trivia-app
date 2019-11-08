@@ -2,45 +2,66 @@ import * as React from 'react'
 import Icon from './icon'
 import {Question} from '../redux/types'
 
-const ResultItem = (props: Question) =>
-  <li className='result-item'>
-    <span className='is-correct'>
-      <Icon
-        name={props.correctAnswer === props.answer ? 'check' : 'close'}
-        color={props.correctAnswer === props.answer ? 'green' : 'red'}
-        fontSize='2rem'
-        />
-    </span>
-    <span className='question'>
-      {props.question}
-    </span>
-    <style jsx>{`
-      li {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        padding: .5rem 0;
-        margin: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      }
+const ResultItem = (props: Question) => {
+  const isAnswerCorrect = props.correctAnswer === props.answer
 
-      li:last-child {
-        border-bottom: none;
-      }
+  return (
+    <li className='result-item'>
+      <span className='is-correct'>
+        <Icon
+          name={isAnswerCorrect ? 'check' : 'close'}
+          color={isAnswerCorrect ? 'green' : 'red'}
+          fontSize='2rem'
+          />
+      </span>
+      <div className='details'>
+        <span className='question'>{props.question}</span>
+        <div className='answers'>
+          <p>Correct answer: {props.correctAnswer ? 'True' : 'False'}</p>
+          <p>Your answer: {props.answer ? 'True' : 'False'}</p>
+        </div>
+      </div>
+      <style jsx>{`
+        li {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          padding: .5rem 0;
+          margin: 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        }
 
-      .is-correct {
-        align-self: flex-start;
-        margin-right: 1rem;
-        border-radius: 20rem;
-        font-size: .2rem;
-        background: #fff;
-      }
+        li:last-child {
+          border-bottom: none;
+        }
 
-      .question {
-        font-size: 1.2rem;
-        flex-basis: 2;
-      }
-    `}</style>
-  </li>;
+        .is-correct {
+          align-self: flex-start;
+          margin-right: 1rem;
+          border-radius: 20rem;
+          font-size: .2rem;
+          background: #fff;
+        }
+
+        .details {
+          flex-basis: 2;
+        }
+
+        .question {
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+
+        .answers {
+          font-size: .8rem;
+        }
+
+        .answers p {
+          margin: 0;
+        }
+      `}</style>
+    </li>
+  )
+}
 
 export default ResultItem;
