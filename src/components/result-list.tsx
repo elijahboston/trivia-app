@@ -22,13 +22,12 @@ const ResultList = (props: ResultListProps) =>
         list-style-type: none;
         padding: 0;
         margin: 0;
+        margin-bottom: 2rem;
         overflow-y: scroll;
         overflow-x: hidden;
         max-height: 20rem;
-        margin-bottom: 2rem;
         border-radius: 1rem;
         box-shadow: inset 1px 1px 5px 0px rgba(255,255,255,1);
-        padding: 1rem;
       }
     `}</style>
   </div>;

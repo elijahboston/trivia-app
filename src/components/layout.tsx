@@ -17,7 +17,6 @@ const Layout = (props: LayoutProps) =>
         align-items: center;
   
         width: 90%;
-        padding: 1rem;
         border-radius: .2rem;
       }
     `}</style>
