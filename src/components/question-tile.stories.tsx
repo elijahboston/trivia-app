@@ -7,7 +7,7 @@ import QuestionTile from './question-tile';
 const stories = storiesOf('Question Tile', module);
 stories.addDecorator(withKnobs);
 stories.add('with text', () => <div>
-  <QuestionTile backgroundColor='#ccc'>{text('Text', 'Hello Storybook')}</QuestionTile>
+  <QuestionTile>{text('Text', 'Hello Storybook')}</QuestionTile>
   <style jsx>{`
     div {
       display: flex;
