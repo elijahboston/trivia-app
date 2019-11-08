@@ -26,7 +26,7 @@ const ResultItem = (props: Question) => {
           display: flex;
           justify-content: left;
           align-items: center;
-          padding: .5rem 0;
+          padding: 1rem;
           margin: 0;
           border-bottom: 1px solid rgba(255, 255, 255, 0.18);
         }
@@ -54,6 +54,7 @@ const ResultItem = (props: Question) => {
 
         .answers {
           font-size: .8rem;
+          color: #ccc;
         }
 
         .answers p {
