@@ -1,4 +1,4 @@
-import css from 'styled-jsx/css'
+import {default as css} from 'styled-jsx/css'
 
 /**
  * This fragment should be used within <style jsx global></style> tags

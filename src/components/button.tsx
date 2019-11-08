@@ -42,7 +42,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
     onClick={handleClick}
-    className={buttonClass}>
+    className={`button ${buttonClass}`}>
       {props.children}
       <style jsx>{`
         button {

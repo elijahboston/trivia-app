@@ -9,6 +9,8 @@ import Icon from './icon'
 const Loading = () => {
   const isLoading = useSelector((state: AppState) => state.api.isLoading)
 
+  if (!isLoading) { return null }
+
   return (
     <div className='loading-container'>
       <div className='loading'>
@@ -29,8 +31,7 @@ const Loading = () => {
           width: 100%;
           height: 100%;
 
-          opacity: ${isLoading ? 1 : 0};
-          display: ${isLoading ? 'block' : 'none'};
+          display: block;
           transition: opacity .2s ease-in;
           background: rgba(0, 0, 0, .5);
           backdrop-filter: blur(2px);
