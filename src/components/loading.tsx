@@ -14,17 +14,15 @@ const Loading = () => {
       <div className='loading'>
         <h2>Loading</h2>
         <div className='loading-icon'>
-          <Icon name='settings_backup_restore' fontSize='2rem' />
+          <Icon name='settings_backup_restore' fontSize='2rem' color='#fff' />
         </div>
       </div>
       <style jsx>{`
-        @keyframes rotation {
-          0% { transform: rotate(0); }
-          100% { transform: rotate(-360deg); }
-        }
-
         .loading-container {
+          z-index: 999;
           position: absolute;
+          top: 0;
+          left: 0;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -39,7 +37,17 @@ const Loading = () => {
         }
 
         .loading {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
           text-align: center;
+          height: 100%;
+        }
+
+        @keyframes rotation {
+          0% { transform: rotate(0); }
+          100% { transform: rotate(-360deg); }
         }
 
         .loading-icon {
