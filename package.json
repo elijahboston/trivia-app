@@ -89,7 +89,8 @@
       "ts"
     ],
     "ignores": [
-      "webpack.*.js"
+      "webpack.*.js",
+      "docs/"
     ]
   },
   "ava": {
@@ -106,7 +107,8 @@
       "./test-helpers/_setup-enzyme.ts"
     ],
     "files": [
-      "!dist/**/*"
+      "!dist/**/*",
+      "!docs/**/*"
     ]
   }
 }
