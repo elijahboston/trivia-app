@@ -1,5 +1,4 @@
 import {default as React, useCallback, useState} from 'react'
-import {useTransition} from 'react-spring'
 
 interface ButtonProps {
   /**

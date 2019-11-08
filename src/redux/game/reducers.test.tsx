@@ -99,8 +99,6 @@ test('game should end when all questions have been answered', t => {
 		}
 	])
 
-	console.log(actual);
-
 	t.true(actual.isGameOver, 'Game over boolean not set')
 	t.is(actual.currentQuestionId, state.questions.length, 'On the wrong question')
 
