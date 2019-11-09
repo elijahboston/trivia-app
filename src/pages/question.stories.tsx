@@ -1,11 +1,10 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import {Provider, ReactReduxContext} from 'react-redux'
 import {gameDataLoaded} from '../redux/game/actions'
 import {apiDataLoaded} from '../redux/api/actions'
 import store from '../redux/store'
 import QuestionPage from './question'
-import Layout from '../components/layout'
 
 const stories = storiesOf('Pages', module);
 
@@ -29,5 +28,4 @@ stories.add('Questions', () =>
         return <QuestionPage />
       }}
     </ReactReduxContext.Consumer>
-  </Provider>
-)
+  </Provider>)

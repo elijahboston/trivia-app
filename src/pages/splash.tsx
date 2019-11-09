@@ -1,7 +1,8 @@
 import * as React from 'react'
-import {Button, Layout} from '../components'
+import {Button} from '../components'
 import {useDispatch} from 'react-redux'
 import {initializeApp} from '../redux/actions'
+import Layout from '../containers/layout';
 
 const SplashPage = () => {
   const dispatch = useDispatch()

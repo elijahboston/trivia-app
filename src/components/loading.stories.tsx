@@ -7,16 +7,4 @@ import Loading from './loading'
 
 const stories = storiesOf('Loading Screen', module);
 
-stories.add('default', () =>
-  <Provider store={store}>
-    <ReactReduxContext.Consumer>
-      {({ store }) => {
-        // Populate the store with a question
-        // so we have something to render
-        store.dispatch(apiDataLoading())
-
-        return <Loading />
-      }}
-    </ReactReduxContext.Consumer>
-  </Provider>
-)
+stories.add('default', () => <Loading />)

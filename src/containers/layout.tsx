@@ -1,13 +1,20 @@
 import * as React from 'react'
-import Loading from './loading'
+import Loading from '../components/loading'
+import {useSelector} from 'react-redux'
+import {AppState} from '../redux/types'
+
 
 interface LayoutProps {
   children: any
 }
 
-const Layout = (props: LayoutProps) =>
-  <div className='layout'>
-    <Loading />
+const Layout = (props: LayoutProps) => {
+  const isLoading = useSelector((state: AppState) => state.api.isLoading)
+
+  return <div className='layout'>
+    
+    {isLoading && <Loading />}
+
     {props.children}
     <style jsx>{`
       .layout {
@@ -21,5 +28,6 @@ const Layout = (props: LayoutProps) =>
       }
     `}</style>
   </div>
+}
 
 export default Layout

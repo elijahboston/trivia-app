@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {AppState, Question} from '../redux/types'
-import {Button, Layout, ResultList} from '../components'
+import {Button, ResultList} from '../components'
 import {resetGame} from '../redux/game/actions'
+import Layout from '../containers/layout';
 
 const ResultsPage = () => {
   const dispatch = useDispatch()

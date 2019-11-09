@@ -5,7 +5,6 @@ import {gameDataLoaded} from '../redux/game/actions'
 import {apiDataLoaded} from '../redux/api/actions'
 import store from '../redux/store'
 import ResultsPage from './results'
-import Layout from '../components/layout'
 
 const stories = storiesOf('Pages', module);
 
