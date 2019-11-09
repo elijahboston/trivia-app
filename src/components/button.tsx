@@ -16,7 +16,11 @@ interface ButtonProps {
   /**
    * Secondary color (hex or rgba) is used to alter style during click events.
    */
-  secondaryColor?: string
+  secondaryColor?: string,
+  /**
+   * Whether to disable click events on the button
+   */
+  disabled?: boolean
 }
 
 const Button = (props: ButtonProps) => {
@@ -41,6 +45,7 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
+    disabled={props.disabled || false}
     onClick={handleClick}
     className={`button ${buttonClass}`}>
       {props.children}
