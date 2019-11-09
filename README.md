@@ -35,6 +35,11 @@ Run any of these with `npm run <command>`
 - **Storybook** integration
 - **Netlify** integration
 
+## Guidelines
+- **Components** should be self-contained and not connected to application state.
+- **Containers** wrap functional components that rely on application state.
+- **Pages** define the structure of each view and connect components to actions and app state.
+
 ## DevNotes
 - I'm transpiling TypeScript using Babel, this enables using libraries like `styled-jsx`.
 
