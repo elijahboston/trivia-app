@@ -7,6 +7,11 @@ import {
 
 const initialState: ApiState = { isLoading: false }
 
+/**
+ * Currently the API just needs to indicate if it's loading or not
+ * @param state Current state
+ * @param action Dispatched action
+ */
 const apiReducer = (
   /* eslint-disable default-param-last */
   state = initialState,

@@ -16,6 +16,11 @@ const initialState: GameState = {
   incorrectAnswers: 0
 }
 
+/**
+ * Manage the game's state
+ * @param state Current game state
+ * @param action Dispatch action
+ */
 const gameReducer = (
   /* eslint-disable default-param-last */
   state = initialState,

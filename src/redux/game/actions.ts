@@ -18,7 +18,11 @@ export function answerQuestion(payload: Answer): GameActionTypes {
     payload
   }
 }
-
+/**
+ * When the API finishes loading we dispatch this action
+ * to set the questions in the game's state
+ * @param questions Array of questions
+ */
 export function gameDataLoaded(questions: Question[]): GameActionTypes {
   return {
     type: GAME_DATA_LOADED,
